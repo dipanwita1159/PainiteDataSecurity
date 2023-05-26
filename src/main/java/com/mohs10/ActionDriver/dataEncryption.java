@@ -15,10 +15,11 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.testng.annotations.Test;
 
 public class dataEncryption {
-    @Test
-    public static String encryptData(String excelFilePath, String excelsheet) throws IOException {
+	
+   @Test
+    public static void encryptData() throws IOException {
         // Construct the path to the input Excel file
-        File inputFile = new File(excelFilePath);
+        File inputFile = new File("C:\\Users\\DELL\\Downloads\\Painite_datasecurity-master\\Painite_datasecurity-master\\TestData\\Data.xlsx");
 
         // Open the input Excel file
         FileInputStream fis = new FileInputStream(inputFile);
@@ -27,7 +28,7 @@ public class dataEncryption {
         Workbook workbook = WorkbookFactory.create(fis);
 
         // Get the sheet with the data to encrypt
-        Sheet sheet = workbook.getSheet(excelsheet);
+        Sheet sheet = workbook.getSheet("Login");
 
         // Get the row and cell for the data to encrypt
         int rowIndex = 1; // Assuming the data starts from the 2nd row
@@ -40,7 +41,7 @@ public class dataEncryption {
         if (cellToEncrypt != null && !cellToEncrypt.getStringCellValue().isEmpty()) {
             // Get the cell value
             String dataToEncrypt = cellToEncrypt.getStringCellValue();
-            System.out.print(dataToEncrypt);
+           // System.out.print(dataToEncrypt);
 
             // Encode the data using URL-safe Base64 encoding
             byte[] encodedBytes = Base64.getUrlEncoder().encode(dataToEncrypt.getBytes(StandardCharsets.UTF_8));
@@ -63,6 +64,6 @@ public class dataEncryption {
         fos.close();
         workbook.close();
 
-        return excelsheet;
+        
     }
 }
