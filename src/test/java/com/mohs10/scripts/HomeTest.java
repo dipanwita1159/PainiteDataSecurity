@@ -11,7 +11,7 @@ import com.mohs10.reuse.CommonFuns;
 
 public class HomeTest extends StartBrowser {
 
-	String excelFilePath = "C:\\Users\\DELL\\Downloads\\Painite_datasecurity-master\\Painite_datasecurity-master\\TestData\\Data.xlsx";
+	String excelFilePath = "TestData\\Data.xlsx";
 	String excelsheet = "Login";
 
 	@Test
