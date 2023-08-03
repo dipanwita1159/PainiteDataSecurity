@@ -44,11 +44,13 @@ public class HomeTest extends StartBrowser {
 			String earning_mem = XLUtils.getStringCellData(excelFilePath, excelsheet, i, 16);
 			String url = XLUtils.getStringCellData(excelFilePath, excelsheet, i, 17);
 			String Dob=XLUtils.getStringCellData(excelFilePath, excelsheet, i, 18);
+			
 
+			//****only for data encryption which will encrypt the data and will store into the same location of the excel sheet***
 			// data Encryption script
 			//dataEncryption.encryptData(excelFilePath, excelsheet);
 
-			// data decryption script
+			// *** will take the encrypted data and pass the decrypted data to the script***
 			hm2.Login(url, Email, Pwd);
 
 			// data Masked script
